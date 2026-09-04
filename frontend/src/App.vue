@@ -13,6 +13,7 @@ onMounted(async () => {
       const data = await res.json();
       if (data.default_theme) setDefault(data.default_theme);
       setWide(data.wide_layout ?? false);
+      if (data.site_title) document.title = data.site_title;
     }
   } catch {
     // network error — keep defaults
